@@ -13,6 +13,7 @@ import {loginUser, logoutUser} from '../actions/session';
 
 import { RioAboutPage } from '../containers/about-page';
 import { RioCounterPage } from '../containers/counter-page';
+import { RioListPage } from '../containers/list-page';
 
 import {
   RioButton,
@@ -51,6 +52,10 @@ import {
             <a [routerLink]="['About']"
               class="text-decoration-none">About Us</a>
           </rio-navigator-item>
+          <rio-navigator-item *ngIf="isLoggedIn" class="p1">
+            <a [routerLink]="['List']"
+              class="text-decoration-none">Todo List</a>
+          </rio-navigator-item>
         </div>
         <div class="flex flex-end">
           <rio-navigator-item *ngIf="isLoggedIn" class="p1 bold">
@@ -82,6 +87,11 @@ import {
     path: '/about',
     name: 'About',
     component: RioAboutPage
+  },
+  {
+    path: '/list',
+    name: 'List',
+    component: RioListPage
   }
 ])
 export class RioSampleApp {
